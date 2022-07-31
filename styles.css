@@ -1,0 +1,36 @@
+html, body {
+  height: 100%;
+  color: white;
+}
+
+body {
+  background-color: rgb(22, 22, 22);
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 100;
+  justify-content: space-between;
+}
+
+header {
+  height: 10vh;
+  background-color: aliceblue;
+}
+
+.main-container {
+  display: grid;
+  height: 400px;
+  padding: 16px;
+  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card {
+  background-color: rgb(51, 51, 51);
+  padding: 8px;
+}
+
+footer {
+  height: 5vh;
+  background-color: aliceblue;
+}
