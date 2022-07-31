@@ -1,3 +1,7 @@
+const header = document.querySelector('header');
+const mainContainer = document.querySelector('.main-container');
+const footer = document.querySelector('footer');
+
 let myLibrary = [];
 
 function Book(author, title, pages, read) {
@@ -61,11 +65,21 @@ newBookButton.addEventListener('click', () => {
   formContainer.style.display = 'block';
 });
 
+function formSubmit() {
+  const author = document.querySelector('#author').value;
+  const title = document.querySelector('#title').value;
+  const pages = document.querySelector('#pages').value;
+  const read = document.querySelector('#read').checked;
+  const book = new Book(author, title, pages, read);
+  addBookToLibrary(book);
+  document.querySelector('form').reset();
+}
+
 const formSubmitButton = document.querySelector('form > button');
 formSubmitButton.addEventListener('click', () => {
-  formContainer.style.display = 'none';
+    formSubmit();
+    displayBook();
+    formContainer.style.display = 'none';
 })
 
-addBookToLibrary(book1);
-addBookToLibrary(book2);
 displayBook();

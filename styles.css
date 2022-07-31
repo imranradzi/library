@@ -29,7 +29,7 @@ header {
 
 .form-container {
   display: none;
-  background: rgba(202, 202, 202, 0.5);
+  background: rgba(202, 202, 202, 0.8);
   position: absolute;
   top: 40%;
   left: 50%;
