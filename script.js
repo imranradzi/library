@@ -35,7 +35,7 @@ function displayBook() {
     card.appendChild(deleteDiv);
 
     // delete functionality
-    const deleteButton = card.querySelector('div:nth-child(1)');
+    const deleteButton = card.querySelector('img');
     deleteButton.addEventListener('click', () => {
       myLibrary.splice(parseInt(card.getAttribute('id')), 1);
       displayBook();
@@ -51,6 +51,20 @@ function displayBook() {
     index++;
   }
 }
+
+// for opening and closing form
+
+const formContainer = document.querySelector('.form-container');
+
+const newBookButton = document.querySelector('.new-book > button');
+newBookButton.addEventListener('click', () => {
+  formContainer.style.display = 'block';
+});
+
+const formSubmitButton = document.querySelector('form > button');
+formSubmitButton.addEventListener('click', () => {
+  formContainer.style.display = 'none';
+})
 
 addBookToLibrary(book1);
 addBookToLibrary(book2);
