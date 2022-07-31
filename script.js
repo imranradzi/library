@@ -32,8 +32,10 @@ function propInfo(book, prop, div) {
     readButton.addEventListener('click', () => {
       if (readButton.getAttribute('src') === 'svg/check.svg') {
         readButton.setAttribute('src', 'svg/x.svg');
+        book[prop] = false;
       } else {
         readButton.setAttribute('src', 'svg/check.svg');
+        book[prop] = false;
       }
     })
   // default info for other properties
