@@ -1,7 +1,3 @@
-const header = document.querySelector('header');
-const mainContainer = document.querySelector('.main-container');
-const footer = document.querySelector('footer');
-
 let myLibrary = [];
 
 function Book(author, title, pages, read) {
@@ -11,14 +7,40 @@ function Book(author, title, pages, read) {
   this.read = read
 }
 
-const book1 = new Book('author1', 'title1', 'pages1', true);
-const book2 = new Book('author2', 'title2', 'pages2', false);
-
 function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
 gridContainer = document.querySelector('.grid-container');
+
+// function that (should) take book, book property and div as
+// input, then adds the property attribute to div
+function propInfo(book, prop, div) {
+  if (prop === 'read') {
+    const hasRead = document.createElement('img');
+    const hasNotRead = document.createElement('img');
+    hasRead.setAttribute('src', 'svg/check.svg');
+    hasNotRead.setAttribute('src', 'svg/x.svg');
+    div.textContent = 'Read Status';
+    if (book[prop] === true) {
+      div.appendChild(hasRead);
+    } else {
+      div.appendChild(hasNotRead);
+    }
+    // user can click on the tick/cross icon to set read status
+    const readButton = div.querySelector('img');
+    readButton.addEventListener('click', () => {
+      if (readButton.getAttribute('src') === 'svg/check.svg') {
+        readButton.setAttribute('src', 'svg/x.svg');
+      } else {
+        readButton.setAttribute('src', 'svg/check.svg');
+      }
+    })
+  // default info for other properties
+  } else {
+    div.textContent = `${prop}: ${book[prop]}`;
+  }
+}
 
 function displayBook() {
   while (gridContainer.firstChild) {
@@ -48,7 +70,8 @@ function displayBook() {
     // setting up div to contain info for card
     for (let prop in book) {
       const info = document.createElement('div');
-      info.textContent = `${prop}: ${book[prop]}`;
+      // custom info for read property
+      propInfo(book, prop, info);
       card.appendChild(info);
     }
     gridContainer.appendChild(card);
@@ -56,8 +79,7 @@ function displayBook() {
   }
 }
 
-// for opening and closing form
-
+// for opening form
 const formContainer = document.querySelector('.form-container');
 
 const newBookButton = document.querySelector('.new-book > button');
@@ -65,6 +87,7 @@ newBookButton.addEventListener('click', () => {
   formContainer.style.display = 'block';
 });
 
+// book submission, also resets form
 function formSubmit() {
   const author = document.querySelector('#author').value;
   const title = document.querySelector('#title').value;
@@ -75,6 +98,7 @@ function formSubmit() {
   document.querySelector('form').reset();
 }
 
+// for closing form, and submitting a book to the page
 const formSubmitButton = document.querySelector('form > button');
 formSubmitButton.addEventListener('click', () => {
     formSubmit();
@@ -82,4 +106,6 @@ formSubmitButton.addEventListener('click', () => {
     formContainer.style.display = 'none';
 })
 
+const book1 = new Book('author1', 'title1', 'pages1', true);
+addBookToLibrary(book1);
 displayBook();
