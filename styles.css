@@ -14,7 +14,7 @@ body {
 
 header {
   height: 16vh;
-  background-color: rgb(153, 214, 255);
+  background-color: rgb(30, 142, 218);
 }
 
 .main-container {
@@ -40,7 +40,21 @@ header {
   box-shadow: 1px 1px 2px rgb(87, 87, 87);
 }
 
+.card > div:nth-child(1) {
+  display: flex;
+  justify-content: end;
+}
+
+.card img {
+  height: 24px;
+  width: 24px;
+}
+
+.card embed:hover {
+  background-color: rgb(43, 43, 43);
+}
+
 footer {
   height: 8vh;
-  background-color: rgb(153, 214, 255);
+  background-color: rgb(30, 142, 218);
 }
