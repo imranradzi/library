@@ -38,7 +38,7 @@ function propInfo(book, prop, div) {
     })
   // default info for other properties
   } else {
-    div.textContent = `${prop}: ${book[prop]}`;
+    div.textContent = `${prop.toUpperCase()} | ${book[prop]}`;
   }
 }
 
@@ -106,6 +106,13 @@ formSubmitButton.addEventListener('click', () => {
     formContainer.style.display = 'none';
 })
 
-const book1 = new Book('author1', 'title1', 'pages1', true);
+// button for closing form if user wants to cancel
+const formCancelButton = document.querySelector('.cancel');
+formCancelButton.addEventListener('click', () => {
+  formContainer.style.display = 'none';
+})
+
+
+const book1 = new Book('Gary Sue', 'Deus Ex Machina', '1000', true);
 addBookToLibrary(book1);
 displayBook();
