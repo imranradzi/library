@@ -13,13 +13,20 @@ body {
 }
 
 header {
-  height: 10vh;
-  background-color: aliceblue;
+  height: 16vh;
+  background-color: rgb(153, 214, 255);
 }
 
 .main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 36px 24px 36px 24px;
+  height: 100%;
+}
+
+.grid-container {
   display: grid;
-  height: 400px;
   padding: 16px;
   gap: 16px;
   grid-template-columns: repeat(2, 1fr);
@@ -28,9 +35,12 @@ header {
 .card {
   background-color: rgb(51, 51, 51);
   padding: 8px;
+  height: 160px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 2px rgb(87, 87, 87);
 }
 
 footer {
-  height: 5vh;
-  background-color: aliceblue;
+  height: 8vh;
+  background-color: rgb(153, 214, 255);
 }
